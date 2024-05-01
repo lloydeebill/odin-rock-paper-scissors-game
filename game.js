@@ -2,7 +2,7 @@
 
 let humanScore = 0;
 let computerScore = 0;
-let tiesScore = 0;
+let drawScore = 0;
 
 let humanChoice;
 let computerChoice;
@@ -42,51 +42,50 @@ function getHumanChoice() {
 
 function playRound(humanChoice,computerChoice) {
 
-  //check if humanchoice defeats or losses with the computer choice using if else
-  // check for each instance of decision to win , lose or tie 
+
 
   //ROCK
 
   
 
   if (humanChoice === 'rock' && computerChoice === 'rock') {
-    ++tiesScore; 
-    console.log('tie');
+    ++drawScore; 
+    console.log('Draw');
   } else if ( humanChoice === 'rock' && computerChoice === 'paper') {
     ++computerScore;
-    console.log('computer wins');
+    console.log('Computer scores the round');
   } else if ( humanChoice === 'rock' && computerChoice === 'scissors') {
     ++humanScore;
-    console.log('human wins');
+    console.log('Human scores the round');
   }
 
   //PAPER
 
   if (humanChoice === 'paper' && computerChoice === 'paper') {
-    ++tiesScore; 
-    console.log('tie');
+    ++drawScore; 
+    console.log('Draw');
   } else if ( humanChoice === 'paper' && computerChoice === 'scissors') {
     ++computerScore;
-    console.log('computer wins');
+    console.log('Computer scores the round');
   } else if ( humanChoice === 'paper' && computerChoice === 'rock') {
     ++humanScore;
-    console.log('human wins');
+    console.log('Human scores the round');
   }
 
   //SCISSORS
 
   if (humanChoice === 'scissors' && computerChoice === 'scissors') {
-    ++tiesScore; 
-    console.log('tie');
+    ++drawScore; 
+    console.log('Draw');
   } else if ( humanChoice === 'scissors' && computerChoice === 'rock') {
     ++computerScore;
-    console.log('computer wins');
+    console.log('Computer scores the round');
   } else if ( humanChoice === 'scissors' && computerChoice === 'paper') {
     ++humanScore;
-    console.log('human wins');
+    console.log('Human scores the round');
   }
 
-  console.log(`Ties: ${tiesScore}`);
+  console.log(`Draw: ${drawScore}`);
   console.log(`Human Score: ${humanScore}`);
   console.log(`Computer Score: ${computerScore}`);
 
@@ -95,11 +94,6 @@ function playRound(humanChoice,computerChoice) {
 
 }
 
-
-// put the playRound function inside playgame 
-// call playRound 5 times or 5 rounds then whoever has higher score wins game
-// best of 3
-// how do i call the playround 5 times if im ask to input for every instance?
 
 function playGame() {
   for (i = 0 ; i < 5 ; i++) {
@@ -110,7 +104,17 @@ function playGame() {
 
   }
 
+  if ( humanScore > computerScore) {
+    console.log('Human wins the game!');
+  } else if ( humanScore < computerScore) {
+    console.log('Computer wins the game!'); 
+  } else if ( humanScore === computerScore) {
+    console.log("It's a tie!");
+  }
+
 }
+
+
 
 
 playGame();
