@@ -50,39 +50,39 @@ function playRound(humanChoice,computerChoice) {
 
   if (humanChoice === 'rock' && computerChoice === 'rock') {
     ++drawScore; 
-    console.log('Draw');
+    console.log('Round Result: Draw');
   } else if ( humanChoice === 'rock' && computerChoice === 'paper') {
     ++computerScore;
-    console.log('Computer scores the round');
+    console.log('Round Result: Computer Scores!');
   } else if ( humanChoice === 'rock' && computerChoice === 'scissors') {
     ++humanScore;
-    console.log('Human scores the round');
+    console.log('Round Result: Human Scores!');
   }
 
   //PAPER
 
   if (humanChoice === 'paper' && computerChoice === 'paper') {
     ++drawScore; 
-    console.log('Draw');
+    console.log('Round Result: Draw');
   } else if ( humanChoice === 'paper' && computerChoice === 'scissors') {
     ++computerScore;
-    console.log('Computer scores the round');
+    console.log('Round Result: Computer Scores!');
   } else if ( humanChoice === 'paper' && computerChoice === 'rock') {
     ++humanScore;
-    console.log('Human scores the round');
+    console.log('Round Result: Human Scores!');
   }
 
   //SCISSORS
 
   if (humanChoice === 'scissors' && computerChoice === 'scissors') {
     ++drawScore; 
-    console.log('Draw');
+    console.log('Round Result: Draw');
   } else if ( humanChoice === 'scissors' && computerChoice === 'rock') {
     ++computerScore;
-    console.log('Computer scores the round');
+    console.log('Round Result: Computer Scores!');
   } else if ( humanChoice === 'scissors' && computerChoice === 'paper') {
     ++humanScore;
-    console.log('Human scores the round');
+    console.log('Round Result: Human Scores!');
   }
 
   console.log(`Draw: ${drawScore}`);
@@ -98,9 +98,13 @@ function playRound(humanChoice,computerChoice) {
 function playGame() {
   for (i = 0 ; i < 5 ; i++) {
 
+    console.log(`Round ${i + 1}`);
     let humanSelection = getHumanChoice(); 
     let computerSelection= getComputerChoice();
-    playRound(humanSelection, computerSelection); 
+    playRound(humanSelection, computerSelection);
+
+    
+ 
 
   }
 
