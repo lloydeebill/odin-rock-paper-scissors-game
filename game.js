@@ -1,9 +1,9 @@
 
 
-
 let humanScore = 0;
 let computerScore = 0;
 let tiesScore = 0;
+
 let humanChoice;
 let computerChoice;
 
@@ -47,6 +47,8 @@ function playRound(humanChoice,computerChoice) {
 
   //ROCK
 
+  
+
   if (humanChoice === 'rock' && computerChoice === 'rock') {
     ++tiesScore; 
     console.log('tie');
@@ -86,16 +88,39 @@ function playRound(humanChoice,computerChoice) {
 
   console.log(`Ties: ${tiesScore}`);
   console.log(`Human Score: ${humanScore}`);
-  console.log(`Computer Score ${computerScore}`);
+  console.log(`Computer Score: ${computerScore}`);
+
+ 
 
 
 }
 
 
+// put the playRound function inside playgame 
+// call playRound 5 times or 5 rounds then whoever has higher score wins game
+// best of 3
+// how do i call the playround 5 times if im ask to input for every instance?
+
+function playGame() {
+  for (i = 0 ; i < 5 ; i++) {
+
+    let humanSelection = getHumanChoice(); 
+    let computerSelection= getComputerChoice();
+    playRound(humanSelection, computerSelection); 
+
+  }
+
+}
 
 
-const humanSelection = getHumanChoice(); 
+playGame();
 
-const computerSelection= getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+
+
+
+
+
+
+
+
