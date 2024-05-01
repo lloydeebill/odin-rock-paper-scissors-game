@@ -3,6 +3,7 @@
 
 let humanScore = 0;
 let computerScore = 0;
+let tiesScore = 0;
 let humanChoice;
 let computerChoice;
 
@@ -47,30 +48,54 @@ function playRound(humanChoice,computerChoice) {
   //ROCK
 
   if (humanChoice === 'rock' && computerChoice === 'rock') {
+    ++tiesScore; 
     console.log('tie');
   } else if ( humanChoice === 'rock' && computerChoice === 'paper') {
+    ++computerScore;
     console.log('computer wins');
   } else if ( humanChoice === 'rock' && computerChoice === 'scissors') {
+    ++humanScore;
     console.log('human wins');
   }
 
   //PAPER
 
   if (humanChoice === 'paper' && computerChoice === 'paper') {
+    ++tiesScore; 
     console.log('tie');
   } else if ( humanChoice === 'paper' && computerChoice === 'scissors') {
+    ++computerScore;
     console.log('computer wins');
   } else if ( humanChoice === 'paper' && computerChoice === 'rock') {
+    ++humanScore;
     console.log('human wins');
   }
 
   //SCISSORS
 
+  if (humanChoice === 'scissors' && computerChoice === 'scissors') {
+    ++tiesScore; 
+    console.log('tie');
+  } else if ( humanChoice === 'scissors' && computerChoice === 'rock') {
+    ++computerScore;
+    console.log('computer wins');
+  } else if ( humanChoice === 'scissors' && computerChoice === 'paper') {
+    ++humanScore;
+    console.log('human wins');
+  }
+
+  console.log(`Ties: ${tiesScore}`);
+  console.log(`Human Score: ${humanScore}`);
+  console.log(`Computer Score ${computerScore}`);
+
+
 }
+
+
 
 
 const humanSelection = getHumanChoice(); 
 
 const computerSelection= getComputerChoice();
 
-playRound(humanSelection, computerSelection)
+playRound(humanSelection, computerSelection);
