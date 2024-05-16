@@ -3,6 +3,7 @@
 let humanScore = 0;
 let computerScore = 0;
 let drawScore = 0;
+let gameOver = false;
 
 
 function getComputerChoice() {
@@ -56,16 +57,34 @@ const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
 
     button.addEventListener("click",() => {
-      const humanChoice = button.id;
+      if (!gameOver) {
+        const humanChoice = button.id;
 
-      const computerChoice = getComputerChoice();
+        const computerChoice = getComputerChoice();
 
-      displayMove(humanChoice,computerChoice);
+        displayMove(humanChoice,computerChoice);
 
-      playRound(humanChoice,computerChoice);
+        playRound(humanChoice,computerChoice);
 
 
-      displayScore();
+        displayScore();
+
+
+        if (humanScore === 5 || computerScore === 5) {
+          gameOver = true;
+        } 
+
+        const gameResult = document.querySelector("#game-result");
+ 
+
+          if (humanScore === 5 ) {
+            gameResult.textContent = "You win!";
+          } else if ( computerScore === 5 ) {
+            gameResult.textContent = "Computer wins";
+          }
+
+        
+      }
 
 
     })
@@ -78,16 +97,6 @@ function displayScore() {
   document.querySelector("#wins").textContent = `Wins: ${humanScore}`;
   document.querySelector("#losses").textContent = `Losses: ${computerScore}`;
   document.querySelector("#ties").textContent = `Ties: ${drawScore}`;
-
-
-  const gameResult = document.querySelector("#game-result");
- 
-
-  if (humanScore === 5 ) {
-    gameResult.textContent = "You win!";
-  } else if ( computerScore === 5 ) {
-    gameResult.textContent = "Computer wins";
-  }
 
 
 
