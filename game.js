@@ -21,7 +21,6 @@ function getComputerChoice() {
     computerChoice = 'scissors'
   }
 
-  console.log(`computer move: ${computerChoice}`);
   return computerChoice;
 }
 
@@ -35,17 +34,14 @@ function playRound(humanChoice,computerChoice) {
 
   if (humanChoice === computerChoice) {
     drawScore++;
-    console.log("Draw");
   } else if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     humanScore++;
-    console.log("Human scores!");
   } else {
     computerScore++;
-    console.log("Computer scores!");
   }
 
 
@@ -80,7 +76,7 @@ buttons.forEach((button) => {
           if (humanScore === 5 ) {
             gameResult.textContent = "You win!";
           } else if ( computerScore === 5 ) {
-            gameResult.textContent = "Computer wins";
+            gameResult.textContent = "Computer wins!";
           }
 
         
