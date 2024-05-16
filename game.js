@@ -80,12 +80,26 @@ function displayScore() {
   document.querySelector("#ties").textContent = `Ties: ${drawScore}`;
 
 
+  const gameResult = document.querySelector("#game-result");
+ 
+
+  if (humanScore === 5 ) {
+    gameResult.textContent = "You win!";
+  } else if ( computerScore === 5 ) {
+    gameResult.textContent = "Computer wins";
+  }
+
+
+
+
+
 }
 
 function displayMove(humanChoice,computerChoice) {
 
   const moveParagraph = document.querySelector(".move");
   moveParagraph.textContent = `You moved ${humanChoice}, computer moves ${computerChoice}`;
+
 }
 
 
