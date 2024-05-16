@@ -8,10 +8,7 @@ let gameOver = false;
 
 function getComputerChoice() {
 
-
-
   let randomNumber = Math.random()
-
 
   if (randomNumber >= 0 && randomNumber < 1/3) {
     computerChoice = 'rock'
@@ -26,10 +23,6 @@ function getComputerChoice() {
 
 
 function playRound(humanChoice,computerChoice) {
-
-
-
-
 
 
   if (humanChoice === computerChoice) {
@@ -75,14 +68,10 @@ buttons.forEach((button) => {
 
           if (humanScore === 5 ) {
             gameResult.textContent = "You win!";
-          } else if ( computerScore === 5 ) {
+          } else {
             gameResult.textContent = "Computer wins!";
           }
-
-        
       }
-
-
     })
   }
 )
@@ -104,7 +93,6 @@ function displayMove(humanChoice,computerChoice) {
 
   const moveParagraph = document.querySelector(".move");
   moveParagraph.textContent = `You moved ${humanChoice}, computer moves ${computerChoice}`;
-
 }
 
 
