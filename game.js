@@ -29,6 +29,9 @@ function playRound(humanChoice,computerChoice) {
 
 
 
+
+
+
   if (humanChoice === computerChoice) {
     drawScore++;
     console.log("Draw");
@@ -57,14 +60,33 @@ buttons.forEach((button) => {
 
       const computerChoice = getComputerChoice();
 
+      displayMove(humanChoice,computerChoice);
+
       playRound(humanChoice,computerChoice);
+
+
+      displayScore();
 
 
     })
   }
-) 
+)
+
+function displayScore() {
 
 
+  document.querySelector("#wins").textContent = `Wins: ${humanScore}`;
+  document.querySelector("#losses").textContent = `Losses: ${computerScore}`;
+  document.querySelector("#ties").textContent = `Ties: ${drawScore}`;
+
+
+}
+
+function displayMove(humanChoice,computerChoice) {
+
+  const moveParagraph = document.querySelector(".move");
+  moveParagraph.textContent = `You moved ${humanChoice}, computer moves ${computerChoice}`;
+}
 
 
 
